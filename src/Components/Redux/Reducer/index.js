@@ -56,10 +56,6 @@ export default function(state = initialState, action) {
             
       }                    
       case "EDIT_PRODUCT":{
-
-       
-        
-
         return{
           ...state,
           productitem:state.listproduct.map((item)=>{
@@ -96,11 +92,7 @@ export default function(state = initialState, action) {
         } 
         
       }
-        
-
-
-
-     default:{
+      default:{
         return state;
       }
     }
