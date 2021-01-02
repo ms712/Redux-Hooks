@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
@@ -6,7 +6,7 @@ import ViewProduct from './ViewProduct'
 import EditProductForm from './EditProductForm'
 
 const TableBody = () => {
-
+    const [id, setid] = useState("")
     let dispatch = useDispatch()
     const data = useSelector(state => state)
 
@@ -25,7 +25,7 @@ const TableBody = () => {
                     </td>
                     <td>
                         <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal"
-                            onClick={() => dispatch({ type: "EDIT_PRODUCT", data: row })}
+                            onClick={() => dispatch({ type: "EDIT_PRODUCT", data: row }) && setid(row.id)}
                         >
                             Edit
                        </button>
@@ -53,7 +53,7 @@ const TableBody = () => {
                     </td>
                 </tr>
                 <ViewProduct />
-                <EditProductForm />
+                <EditProductForm id = {id} />
             </>
         )
 

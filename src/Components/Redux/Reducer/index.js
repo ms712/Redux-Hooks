@@ -19,7 +19,7 @@ export default function(state = initialState, action) {
       }
       case "DELETE_PRODUCT":{           
            return {
-            listproduct:state.listproduct.filter(item => item.id !== action.data.id)
+            listproduct:state.listproduct.filter(item => item.id !== action.id)
            };
       }
       case "VIEW_PRODUCT":{
@@ -86,8 +86,8 @@ export default function(state = initialState, action) {
               
               };
             }else return item 
-          })
-
+          }),
+        
 
         } 
         

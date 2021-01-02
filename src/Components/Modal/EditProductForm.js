@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 function EditProductForm(props) {
     
+   console.log("props id", props.id);
    
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState("");
@@ -11,7 +12,7 @@ function EditProductForm(props) {
     const [productImage,setProductImage] = useState("");
     
     
-    console.log("id",props.id);
+ 
     let dispatch = useDispatch()
 
 
@@ -45,9 +46,17 @@ function EditProductForm(props) {
     const prodata = useSelector(state=>state.productitem)   
     
     
-    const pro = prodata.filter((e)=>typeof(e)=="object")
+
+    const pro = prodata.filter((e)=>typeof (e) == "object")
+
+    const proid = pro.filter((e)=> e.id == props.id)
     
+
+    console.log("after update",proid);
+
     let prid = pro[0] ? pro[0].id : ""
+
+    
 
    return (
       
@@ -74,7 +83,7 @@ function EditProductForm(props) {
                                             (e)=>onHandleUpdate(e)
                                         }
                                         name = "productName"
-                                        defaultValue = {pro[0] ? pro[0].productName:""}
+                                        defaultValue = {proid[0] ? proid[0].productName:""}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPrice">
@@ -82,7 +91,7 @@ function EditProductForm(props) {
                                     <Form.Control 
                                         type="text" 
                                         placeholder="Product Price" 
-                                        defaultValue = {pro[0] ? pro[0].productPrice:""}
+                                        defaultValue = {proid[0] ? proid[0].productPrice:""}
                                         name = "productPrice"
                                         onChange = {
                                             (e)=>onHandleUpdate(e)
@@ -97,7 +106,7 @@ function EditProductForm(props) {
                                         onChange = {
                                             (e)=>onHandleUpdate(e)
                                         }
-                                        defaultValue = {pro[0] ? pro[0].productTitle:""}
+                                        defaultValue = {proid[0] ? proid[0].productTitle:""}
                                         name = "productTitle"       
                                     />
                                 </Form.Group>
@@ -111,7 +120,7 @@ function EditProductForm(props) {
                                         name="file"
                                         label="File"
                                         name = "productImage"
-                                        defaultValue = {pro[0] ? pro[0].productImage:""}
+                                        defaultValue = {proid[0] ? proid[0].productImage:""}
                                     />
                                 </Form.Group>                               
                                 <Button     variant="primary" type="submit"
