@@ -12,7 +12,7 @@ const TableBody = () => {
 
     let productlist = data.listproduct.map((row, index) => {
 
-        console.log("error", row);
+        
         return (
             <>
                 <tr key={index} >
@@ -22,19 +22,18 @@ const TableBody = () => {
                     <td>{row.productPrice}</td>
                     <td>
                         <img className="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap" />
-
                     </td>
                     <td>
                         <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal"
-                         onClick={() => dispatch({ type: "EDIT_PRODUCT", data:row})}
+                            onClick={() => dispatch({ type: "EDIT_PRODUCT", data: row })}
                         >
                             Edit
                        </button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        onClick={() => dispatch({ type: "VIEW_PRODUCT", data: row,index:index})}
-                          
+                            onClick={() => dispatch({ type: "VIEW_PRODUCT", data: row, index: index })}
+
                         >
                             View
                         </button>
@@ -53,7 +52,7 @@ const TableBody = () => {
                         </button>
                     </td>
                 </tr>
-                <ViewProduct/>
+                <ViewProduct />
                 <EditProductForm />
             </>
         )
@@ -62,9 +61,6 @@ const TableBody = () => {
     return <tbody>{productlist}</tbody>
 
 }
-
-
-
 function ProductTable(props) {
     console.log("my props", props.productdata);
     return (

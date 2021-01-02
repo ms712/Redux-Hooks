@@ -4,23 +4,10 @@ import { Card } from 'react-bootstrap'
 
 function ViewProduct() {
     const data = useSelector(state => state.productitem)
-
-     
-    let pro = data.filter((e)=>typeof(e)=="object") 
-        
-               
-      
-      
-     
-
-    
-    
-    console.log("item",pro);
-    
+    let pro = data.filter((e) => typeof (e) == "object")
     return (
-
         <>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"   aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -30,11 +17,11 @@ function ViewProduct() {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <div className="card" Style="width: 18rem;">            
-                                <img className="card-img-top" src= "https://placeimg.com/640/480/any" alt="Card image cap" />
+                            <div className="card" Style="width: 18rem;">
+                                <img className="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap" />
                                 <div className="card-body">
-                                    <h5 className="card-title">Price:{pro[0] ? pro[0].productPrice:""}</h5>
-                                    <p className="card-text"><h3></h3>{pro[0] ?pro[0].productName:""}</p>
+                                    <h5 className="card-title">Price:{pro[0] ? pro[0].productPrice : ""}</h5>
+                                    <p className="card-text"><h3></h3>{pro[0] ? pro[0].productName : ""}</p>
                                     {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
                                 </div>
                             </div>
